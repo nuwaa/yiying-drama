@@ -32,7 +32,7 @@ timeZone = "Asia/Tokyo"
   weight = 1
 
 [[menu.main]]
-  identifier = "questions"
+  identifier = "data"
   name = "データ"
   url = "/data/"
   weight = 2
