@@ -1,0 +1,372 @@
+/* --- 共通設定 --- */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- 可愛いカード風の本文表示（詳細ページ） --- */
+.cute-article {
+  background-color: #fff7fa;
+  border-radius: 16px;
+  padding: 2.5rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  box-shadow: 0 8px 24px rgba(255, 192, 203, 0.2);
+  box-sizing: border-box;
+}
+
+.cute-article img,
+.cute-article table {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* --- テーブルの表示改善（罫線追加） --- */
+.cute-article table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: auto;
+}
+
+.cute-article th,
+.cute-article td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  font-size: 0.95rem;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.cute-article th {
+  background-color: #fdf0f5;
+  font-weight: bold;
+}
+
+/* --- ナビバー風リンク --- */
+.cute-nav {
+  text-align: center;
+  margin: 1rem auto;
+  background-color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 0.6rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.cute-nav a {
+  display: inline-block;
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #ff6699;
+  font-weight: bold;
+}
+
+/* --- 検索結果ハイライト --- */
+mark {
+  background-color: yellow;
+  padding: 0 2px;
+  border-radius: 3px;
+}
+
+/* --- 質問一覧ページのカードレイアウト --- */
+.question-cards .card-container {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+  gap: 1.5rem !important;
+  padding: 1rem !important;
+  justify-content: center !important;
+}
+
+.card {
+  background: #fff0f5;
+  border: 2px solid #f8c8dc;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(200, 150, 180, 0.15);
+  width: 100% !important;
+  box-sizing: border-box !important;
+  transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card h3 {
+  margin-top: 0;
+  font-size: 1.3em;
+  color: #cc3388;
+}
+
+.card p.date {
+  font-size: 0.9em;
+  color: #777;
+}
+
+.card p {
+  color: #333;
+  font-size: 0.95em;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  color: #aa3388;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* --- フェードインアニメーション --- */
+.fade-in-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-in-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- タグ一覧のバッジ（旧スタイルも維持） --- */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 1.5rem 0;
+  justify-content: center;
+}
+
+.tag-badge {
+  display: inline-block;
+  background-color: #fff0f8;
+  color: #d63384;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(255, 192, 203, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.tag-badge:hover {
+  background-color: #ffe4ee;
+  transform: translateY(-2px);
+}
+
+.tag-badge .count {
+  color: #999;
+  margin-left: 4px;
+  font-size: 0.8em;
+}
+
+/* --- タグバブル（iPad優先 軽量ピンク魔法風） --- */
+.tag-bubble-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.tag-bubble {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(145deg, #ffe4f0, #ffd1eb);
+  color: #c2185b;
+  border: 2px solid #ff99bb;
+  border-radius: 9999px;
+  padding: 10px 20px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(255, 153, 187, 0.4);
+  overflow: hidden;
+  z-index: 0;
+  transition: transform 0.25s ease, box-shadow 0.3s ease;
+  animation: float-bounce 3s ease-in-out infinite;
+}
+
+.tag-bubble:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 153, 187, 0.4);
+  color: #880e4f;
+}
+
+.tag-bubble .count {
+  font-size: 0.8em;
+  margin-left: 6px;
+  color: #884455;
+}
+
+@keyframes float-bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .tag-bubble::after,
+  .tag-bubble::before {
+    animation: none !important;
+    opacity: 0.1 !important;
+  }
+}
+
+.page-title {
+  color: #cc3388; /* おすすめ：明るめのユエリーピンク */
+  font-weight: bold;
+  font-size: 1.6rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.cute-article p:has(> strong:contains("【6. メタ情報")) {
+  display: none;
+}
+
+.cute-article p {
+  color: #444444; /* or #555555 や #333333 もOK */
+}
+
+
+.cute-article h2 {
+  color: #cc3388;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  border-bottom: 2px solid #f8c8dc;
+  padding-bottom: 0.3rem;
+}
+
+.cute-article h3 {
+  color: #aa336a;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+}
+
+.page-content p {
+  color: #444;  /* ←本文テキストを柔らかい濃いグレーに */
+}
+
+.page-content h2 {
+  color: #cc3388;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  border-bottom: 2px solid #f8c8dc;
+  padding-bottom: 0.3rem;
+}
+
+.page-content h3 {
+  color: #aa336a;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+}
+
+.page-content ul {
+  padding-left: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.page-content blockquote {
+  border-left: 4px solid #f3b4c8;
+  background-color: #fff0f5;
+  padding: 0.6rem 1rem;
+  color: #555;
+  font-style: italic;
+  margin: 1.5rem 0;
+}
+
+
+.page-content blockquote {
+  position: relative;
+  background: #fff0f8;
+  border-left: 6px solid #f59ac5;
+  border-radius: 12px;
+  padding: 1rem 1.2rem 1.2rem 1.2rem;
+  margin: 3.5rem 0 2rem 0;  /* 👈 ここを調整しました！ */
+  font-style: italic;
+  color: #444;
+  box-shadow: 2px 2px 8px rgba(245, 154, 197, 0.2);
+}
+
+
+.page-content blockquote::before {
+  content: "ユエリーのひとこと";
+  display: inline-block;
+  padding-left: 32px;
+  background: url('/images/yueli-icon.jpg') no-repeat left center;
+  background-size: 24px 24px;
+  height: 24px;
+  line-height: 24px;
+  color: #cc3388;
+  font-weight: bold;
+
+  /* 空行をなくすための調整 */
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.page-content blockquote::after {
+  content: "";
+  position: absolute;
+  bottom: -16px;
+  left: 40px;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-top-color: #fff0f8;
+}
+
+h1 {
+  color: #aa336a; /* ユエリーのテーマカラー */
+  font-family: "Kosugi Maru", sans-serif; /* 丸ゴ系フォントで柔らかく */
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px dashed #ff99cc;
+  padding-bottom: 0.5rem;
+}
+
+h1::after {
+  content: "✨";
+  margin-left: 0.5rem;
+  color: #ffccff;
+  animation: sparkle 2s infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.footer__links {
+  font-size: 0.9rem;
+  a {
+    color: #999;
+    margin: 0 0.5rem;
+    text-decoration: none;
+    &:hover {
+      color: #666;
+      text-decoration: underline;
+    }
+  }
+}
+
+.text-center {
+  text-align: center;
+}

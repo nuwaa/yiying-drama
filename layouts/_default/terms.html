@@ -1,0 +1,40 @@
+{{ define "main" }}
+
+<main class="page single cute-article">
+
+  <!-- 🌸 ナビバー（上部） -->
+  {{ partial "nav.html" . }}
+
+<div class="page-header" style="text-align: center;">
+  <h1 class="page-title">
+    {{ if eq .Data.Plural "tags" }}タグ一覧（件数順）
+    {{ else if eq .Data.Plural "categories" }}カテゴリ一覧（件数順）
+    {{ else }}{{ .Data.Plural }}（件数順）{{ end }}
+  </h1>
+</div>
+
+  <!-- ✅ 質問回答件数の表示 -->
+  {{ $questions := where site.RegularPages "Section" "questions" }}
+  <p style="text-align: center; font-weight: bold; color: #cc3388; margin-bottom: 1rem;">
+    現在の質問回答件数：{{ len $questions }}件
+  </p>
+
+  <div class="tag-bubble-container">
+    {{ range .Data.Terms.ByCount }}
+      <a href="{{ .Page.Permalink }}" class="tag-bubble">
+        #{{ .Page.Title }} <span class="count">({{ .Count }})</span>
+      </a>
+    {{ end }}
+  </div>
+
+  <!-- 🌸 ナビバー（下部） -->
+  {{ partial "nav.html" . }}
+
+  <!-- 🌙 著作権 -->
+  <footer style="text-align:center; margin-top:1rem; font-size: 0.85rem; color: #aa88aa;">
+    © 2025 月璃(Yueli) 🌙
+  </footer>
+
+</main>
+
+{{ end }}

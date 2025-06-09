@@ -1,0 +1,137 @@
+{{ define "main" }}
+<main class="page single cute-article">
+
+<!-- 🌸 ナビバー風リンク（上部） -->
+{{ partial "nav.html" . }}
+
+<header class="page-header">
+  <h1 class="page-title">{{ .Title }}</h1>
+</header>
+
+<!-- 🔍 メタ説明（.Description）を表示 -->
+{{ if .Description }}
+  <p class="subtitle" style="text-align:center; color:#888; font-size: 1rem; margin-top: -0.5rem;">
+    {{ .Description }}
+  </p>
+{{ end }}
+
+<div class="page-content cute-content">
+  {{ .Content }}
+</div>
+
+<!-- 🔗 シェアボタン（X・Facebook・LINE） -->
+<div style="text-align: center; margin-top: 2rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+  <a href="https://twitter.com/intent/tweet?text={{ .Title }}&url={{ .Permalink }}&hashtags=台日近現代史,ユエリー,日台交流"
+     target="_blank" rel="noopener noreferrer"
+     style="display:inline-flex; align-items:center; gap:0.4rem; padding: 0.4rem 0.8rem; background: #1DA1F2; color: white; border-radius: 999px; text-decoration: none; font-size: 0.9rem;">
+    🐦 Xでシェア
+  </a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}"
+     target="_blank" rel="noopener noreferrer"
+     style="display:inline-flex; align-items:center; gap:0.4rem; padding: 0.4rem 0.8rem; background: #4267B2; color: white; border-radius: 999px; text-decoration: none; font-size: 0.9rem;">
+    📘 Facebookでシェア
+  </a>
+
+  <a href="https://social-plugins.line.me/lineit/share?url={{ .Permalink }}"
+     target="_blank" rel="noopener noreferrer"
+     style="display:inline-flex; align-items:center; gap:0.4rem; padding: 0.4rem 0.8rem; background: #00C300; color: white; border-radius: 999px; text-decoration: none; font-size: 0.9rem;">
+    💬 LINEで送る
+  </a>
+</div>
+
+<!-- ✅ 質問回答件数の表示 -->
+{{ $questions := where site.RegularPages "Section" "questions" }}
+<p style="text-align: center; font-weight: bold; color: #cc3388; margin-top: 2rem;">
+  現在の質問回答件数：{{ len $questions }}件
+</p>
+
+<!-- 🏷 タグ表示 -->
+{{ if .Params.tags }}
+  <div style="margin: 2rem 0; text-align: center;">
+    <strong style="color:#cc3388;">🏷 タグ:</strong>
+    {{ range $index, $tag := .Params.tags }}
+      <a href="{{ "/tags/" | relLangURL }}{{ $tag | urlize }}/" class="tag-badge">#{{ $tag }}</a>
+    {{ end }}
+  </div>
+{{ end }}
+
+{{ partial "giscus.html" . }}
+
+<!-- 📚 関連記事 -->
+{{ $current := . }}
+{{ $alltags := .Params.tags }}
+{{ $related := slice }}
+
+{{ if $alltags }}
+  {{ range .Site.RegularPages }}
+    {{ if ne .Permalink $current.Permalink }}
+      {{ $match := intersect .Params.tags $alltags }}
+      {{ if gt (len $match) 0 }}
+        {{ $related = $related | append . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $related = first 5 $related }}
+
+{{ if gt (len $related) 0 }}
+  <div style="margin-top: 3rem;">
+    <h3 style="text-align: center; color: #cc3388;">📚 関連記事</h3>
+    <ul style="list-style: none; padding: 0; text-align: center;">
+      {{ range $related }}
+        <li style="margin: 0.5rem 0;">
+          <a href="{{ .RelPermalink }}" style="text-decoration: none; color: #aa336a; font-weight: bold;">
+            {{ .Title }}
+          </a>
+          <span style="color: #888; font-size: 0.85rem;">
+            （{{ .Date.Format "2006年1月" }}）
+          </span>
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+{{ end }}
+
+<!-- 🌸 ナビバー風リンク（下部） -->
+{{ partial "nav.html" . }}
+
+
+<!-- 📢 広告エリア -->
+<div class="cute-adsense" style="margin: 3rem auto 1.5rem auto; text-align:center;">
+  <div style="font-size: 0.85rem; color: #cc88aa;">
+<!-- 📢 広告エリア（準備中） -->
+  </div>
+</div>
+
+
+<!-- 🌙 著作権表示 -->
+<footer style="text-align:center; margin-top:1rem; font-size: 0.85rem; color: #aa88aa;">
+  © 2025 月璃(Yueli) 🌙
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const content = document.querySelector(".page-content");
+  if (!content) return;
+
+  const children = Array.from(content.children);
+  children.forEach(el => {
+    const text = el.textContent.trim();
+    if (
+      text.match(/^description:/i) ||
+      text.match(/^keywords:/i) ||
+      text.match(/^tags:/i) ||
+      text.match(/^categories:/i) ||
+      text.match(/^slug:/i) ||
+      text.match(/^draft:/i)
+    ) {
+      el.style.display = "none";  // ユーザーには非表示に
+    }
+  });
+});
+</script>
+
+</main>
+{{ end }}
