@@ -1,6 +1,6 @@
 baseURL = "https://c1i.net/"
 languageCode = "ja"
-title = "ユエリーの台日近現代史ノート"
+title = "イーインのドラマデータ"
 theme = "LoveIt"
 canonifyURLs = true
 relativeURLs = false
@@ -11,8 +11,8 @@ timeZone = "Asia/Tokyo"
 
 
 [params]
-  title = "ユエリーの台日近現代史ノート"
-  description = "台湾と日本の歴史を優しく深く紹介するノート"
+  title = "イーインのドラマメモ"
+  description = "中国のファンタジー時代劇ドラマのデータ"
   images = ["/images/ogp-default.jpg"]
   defaultThumbnail = "/images/default-ogp.jpg"
   defaultTheme = "auto"
@@ -33,15 +33,9 @@ timeZone = "Asia/Tokyo"
 
 [[menu.main]]
   identifier = "questions"
-  name = "質問一覧"
-  url = "/questions/"
+  name = "データ"
+  url = "/data/"
   weight = 2
-
-[[menu.main]]
-  identifier = "timeline"
-  name = "年表"
-  url = "/timeline/"
-  weight = 3
 
 [[menu.main]]
   name = "プライバシー"
@@ -58,17 +52,15 @@ timeZone = "Asia/Tokyo"
   url = "/about/"
   weight = 70
 
-  
-
 [outputs]
 home = ["HTML", "RSS", "JSON"]
 section = ["HTML"]
 
 [params.footer]
-copyright = "© 2025 月璃(Yueli)"
+copyright = "© 2025 藝瑩(YiYing)"
 
 [params.author]
-name = "月璃(Yueli)"
+name = "藝瑩(YiYing)"
 
 [sitemap]
   changefreq = "daily"
@@ -79,15 +71,4 @@ name = "月璃(Yueli)"
   category = "categories"
   tag = "tags"
 
-[params.giscus]
-  repo = "nuwaa/yueli-history"
-  repo_id = "R_kgDOOaUmQA"
-  category = "General"
-  category_id = "DIC_kwDOOaUmQM4CqCve"
-  mapping = "pathname"
-  reactionsEnabled = "1"
-  emitMetadata = "0"
-  inputPosition = "bottom"
-  theme = "preferred_color_scheme"
-  lang = "ja"
 
