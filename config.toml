@@ -9,7 +9,6 @@ enableGitInfo   = true
 defaultContentLanguage = "ja"
 timeZone = "Asia/Tokyo"
 
-
 [params]
   title = "イーインのドラマメモ"
   description = "中国のファンタジー時代劇ドラマのデータ"
