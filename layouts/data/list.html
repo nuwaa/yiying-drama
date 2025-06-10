@@ -40,12 +40,13 @@
              data-body="{{ .Plain | lower }}"
              data-lastmod="{{ .Lastmod.Format `2006-01-02` }}"
              data-popularity="{{ .Params.views | default 0 }}"
-             style="margin-bottom: 2.5rem;">
+             style="margin-bottom: 2.5rem; display: flex; flex-direction: row; gap: 1rem; align-items: flex-start;">
+
           {{ if $thumb }}
-            <img src="{{ $thumb }}" alt="thumbnail" style="width: 100%; max-width: 600px; height: auto; object-fit: cover; border-radius: 0.75rem; box-shadow: 0 2px 6px rgba(0,0,0,0.15); margin: 0 auto 1rem auto; display: block;">
+            <img src="{{ $thumb }}" alt="thumbnail" style="width: 400px; height: auto; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); flex-shrink: 0;">
           {{ end }}
 
-          <div style="padding: 0 0.5rem;">
+          <div class="card-text" style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 0.5rem 0;">
             <h3 style="font-size: 1.25rem; margin-bottom: 0.3rem;">
               <a href="{{ .RelPermalink }}">{{ .Title }}</a>
             </h3>     
@@ -53,7 +54,7 @@
             <p class="date" style="font-size: 0.85rem; color: #888;">
               {{ .Date.Format "2006年01月02日" }}
             </p>
-            
+
             {{ $plain := replace .Plain "\n" " " }}
             {{ $lines := split $plain "." }}
             {{ $summary := "" }}
@@ -67,7 +68,7 @@
             {{ end }}
 
             <p style="margin-top: 0.5rem;">{{ $summary | truncate 400 }}</p>
-            <a class="read-more" href="{{ .RelPermalink }}" style="color: #cc3388;">続きを読む →</a>
+            <a class="read-more" href="{{ .RelPermalink }}" style="color: #cc3388; margin-top: auto;">続きを読む →</a>
           </div>
         </div>
       {{ end }}
@@ -111,7 +112,7 @@
         const rawTitle = card.getAttribute("data-title");
         const rawBody = card.getAttribute("data-body");
         const match = rawTitle.includes(keyword) || rawBody.includes(keyword);
-        card.style.display = match || keyword === "" ? "block" : "none";
+        card.style.display = match || keyword === "" ? "flex" : "none";
         titleLink.innerHTML = highlight(titleLink.textContent, keyword);
         bodyElem.innerHTML = highlight(bodyElem.textContent, keyword);
       });
