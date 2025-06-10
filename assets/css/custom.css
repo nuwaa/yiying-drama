@@ -14,7 +14,7 @@ html, body {
   padding: 2.5rem;
   max-width: 1200px;
   margin: 2rem auto;
-  box-shadow: 0 8px 24px rgba(255, 192, 203, 0.2);
+  box-shadow: 0 8px 24px rgba(80, 200, 120, 0.2);
   box-sizing: border-box;
 }
 
@@ -43,7 +43,7 @@ html, body {
 }
 
 .cute-article th {
-  background-color: #fdf0f5;
+  background-color: #DFFFF0;
   font-weight: bold;
 }
 
@@ -88,11 +88,11 @@ mark {
 }
 
 .card {
-  background: #fff0f5;
-  border: 2px solid #f8c8dc;
+  background: #E6FFF5;
+  border: 2px solid #A0F0C0;
   border-radius: 12px;
   padding: 1rem;
-  box-shadow: 0 4px 10px rgba(200, 150, 180, 0.15);
+  box-shadow: 0 4px 10px rgba(80, 200, 120, 0.15);
   width: 100% !important;
   box-sizing: border-box !important;
   transition: transform 0.2s ease, opacity 0.3s ease;
@@ -105,7 +105,7 @@ mark {
 .card h3 {
   margin-top: 0;
   font-size: 1.3em;
-  color: #cc3388;
+  color: #3CB371;
 }
 
 .card p.date {
@@ -121,7 +121,7 @@ mark {
 .read-more {
   display: inline-block;
   margin-top: 10px;
-  color: #aa3388;
+  color: #3CB371;
   font-weight: bold;
   text-decoration: none;
 }
@@ -149,18 +149,18 @@ mark {
 
 .tag-badge {
   display: inline-block;
-  background-color: #fff0f8;
-  color: #d63384;
+  background-color: #E6FFF5;
+  color: #3CB371;
   padding: 0.5rem 1rem;
   border-radius: 999px;
   font-size: 0.9rem;
   text-decoration: none;
-  box-shadow: 0 2px 6px rgba(255, 192, 203, 0.2);
+  box-shadow: 0 2px 6px rgba(80, 200, 120, 0.2);
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .tag-badge:hover {
-  background-color: #ffe4ee;
+  background-color: #DFFFF0;
   transform: translateY(-2px);
 }
 
@@ -183,14 +183,14 @@ mark {
   position: relative;
   display: inline-block;
   background: linear-gradient(145deg, #ffe4f0, #ffd1eb);
-  color: #c2185b;
+  color: #3CB371;
   border: 2px solid #ff99bb;
   border-radius: 9999px;
   padding: 10px 20px;
   font-size: 1.05rem;
   font-weight: bold;
   text-decoration: none;
-  box-shadow: 0 4px 12px rgba(255, 153, 187, 0.4);
+  box-shadow: 0 4px 12px rgba(80, 200, 120, 0.4);
   overflow: hidden;
   z-index: 0;
   transition: transform 0.25s ease, box-shadow 0.3s ease;
@@ -199,8 +199,8 @@ mark {
 
 .tag-bubble:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 12px rgba(255, 153, 187, 0.4);
-  color: #880e4f;
+  box-shadow: 0 0 12px rgba(80, 200, 120, 0.4);
+  color: #287D5A;
 }
 
 .tag-bubble .count {
@@ -224,7 +224,7 @@ mark {
 }
 
 .page-title {
-  color: #cc3388; /* おすすめ：明るめのユエリーピンク */
+  color: #3CB371; /* おすすめ：明るめのユエリーピンク */
   font-weight: bold;
   font-size: 1.6rem;
   margin-bottom: 1.2rem;
@@ -241,16 +241,16 @@ mark {
 
 
 .cute-article h2 {
-  color: #cc3388;
+  color: #3CB371;
   font-size: 1.4rem;
   font-weight: bold;
   margin-top: 2rem;
-  border-bottom: 2px solid #f8c8dc;
+  border-bottom: 2px solid #A0F0C0;
   padding-bottom: 0.3rem;
 }
 
 .cute-article h3 {
-  color: #aa336a;
+  color: #287D5A;
   font-size: 1.2rem;
   font-weight: bold;
   margin-top: 1.5rem;
@@ -261,16 +261,16 @@ mark {
 }
 
 .page-content h2 {
-  color: #cc3388;
+  color: #3CB371;
   font-size: 1.4rem;
   font-weight: bold;
   margin-top: 2rem;
-  border-bottom: 2px solid #f8c8dc;
+  border-bottom: 2px solid #A0F0C0;
   padding-bottom: 0.3rem;
 }
 
 .page-content h3 {
-  color: #aa336a;
+  color: #287D5A;
   font-size: 1.2rem;
   font-weight: bold;
   margin-top: 1.5rem;
@@ -282,8 +282,8 @@ mark {
 }
 
 .page-content blockquote {
-  border-left: 4px solid #f3b4c8;
-  background-color: #fff0f5;
+  border-left: 4px solid #A0F0C0;
+  background-color: #E6FFF5;
   padding: 0.6rem 1rem;
   color: #555;
   font-style: italic;
@@ -293,26 +293,26 @@ mark {
 
 .page-content blockquote {
   position: relative;
-  background: #fff0f8;
-  border-left: 6px solid #f59ac5;
+  background: #E6FFF5;
+  border-left: 6px solid #A0F0C0;
   border-radius: 12px;
   padding: 1rem 1.2rem 1.2rem 1.2rem;
   margin: 3.5rem 0 2rem 0;  /* 👈 ここを調整しました！ */
   font-style: italic;
   color: #444;
-  box-shadow: 2px 2px 8px rgba(245, 154, 197, 0.2);
+  box-shadow: 2px 2px 8px rgba(80, 200, 120, 0.2);
 }
 
 
 .page-content blockquote::before {
-  content: "ユエリーのひとこと";
+  content: "イーインのひとこと";
   display: inline-block;
   padding-left: 32px;
   background: url('/images/yueli-icon.jpg') no-repeat left center;
   background-size: 24px 24px;
   height: 24px;
   line-height: 24px;
-  color: #cc3388;
+  color: #3CB371;
   font-weight: bold;
 
   /* 空行をなくすための調整 */
@@ -328,24 +328,24 @@ mark {
   width: 0;
   height: 0;
   border: 8px solid transparent;
-  border-top-color: #fff0f8;
+  border-top-color: #E6FFF5;
 }
 
 h1 {
-  color: #aa336a; /* ユエリーのテーマカラー */
+  color: #287D5A; /* イーインのテーマカラー */
   font-family: "Kosugi Maru", sans-serif; /* 丸ゴ系フォントで柔らかく */
   font-size: 2rem;
   text-align: center;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  border-bottom: 2px dashed #ff99cc;
+  border-bottom: 2px dashed #A0F0C0;
   padding-bottom: 0.5rem;
 }
 
 h1::after {
   content: "✨";
   margin-left: 0.5rem;
-  color: #ffccff;
+  color: #A0F0C0;
   animation: sparkle 2s infinite;
 }
 
