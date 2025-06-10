@@ -10,7 +10,7 @@ defaultContentLanguage = "ja"
 timeZone = "Asia/Tokyo"
 
 [params]
-  title = "イーインのドラマメモ"
+  title = "イーインのドラマデータ"
   description = "中国のファンタジー時代劇ドラマのデータ"
   images = ["/images/ogp-default.jpg"]
   defaultThumbnail = "/images/default-ogp.jpg"
