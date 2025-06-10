@@ -14,7 +14,7 @@
     中華ドラマの基本情報を日本語で提供します！
 
     <!-- ✅ 質問回答件数の表示 -->
-    {{ $questions := where site.RegularPages "Section" "questions" }}
+    {{ $questions := where site.RegularPages "Section" "data" }}
     <p style="margin-top: 1rem; font-weight: bold; color: #cc3388;">
       現在のデータ件数：{{ len $questions }}件
     </p>
