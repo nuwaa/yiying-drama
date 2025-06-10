@@ -5,7 +5,7 @@
 
     <title>
       {{ if .IsHome }}
-        ユエリーの台日近現代史ノート - 台湾と日本の間にある物語
+        イーインのドラマメモ - 中国のファンタジー時代劇ドラマの日本語解説
       {{ else if eq .Data.Plural "tags" }}
         タグ一覧（件数順） - {{ .Site.Title }}
       {{ else if eq .Data.Plural "categories" }}
@@ -32,8 +32,8 @@
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
     
     <!-- ✅ OGP / Twitterカード / SEOメタ情報 -->
-    {{ $desc := .Params.description | default "台湾と日本の近現代史をやさしく解説する、ユエリーのノート。" }}
-    {{ $title := .Title | default "ユエリーの台日近現代史ノート" }}
+    {{ $desc := .Params.description | default "中国のファンタジー時代劇ドラマを日本語で解説する、イーインのデータ。" }}
+    {{ $title := .Title | default "イーインのドラマデータ" }}
     {{ $url := .Permalink }}
 
     {{ $img := "" }}
