@@ -101,11 +101,12 @@ mark {
 }
 
 .card img {
-  width: 100px;
-  height: auto;
-  object-fit: cover;
+  width: 200px;          /* 横幅は常に200pxに固定 */
+  height: auto;          /* 縦は自動 */
+  object-fit: cover;     /* 画像がはみ出さないようにトリミング or カバー */
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  flex-shrink: 0;
 }
 
 .card .card-text {
