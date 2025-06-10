@@ -81,10 +81,10 @@ mark {
 /* --- 質問一覧ページのカードレイアウト --- */
 .question-cards .card-container {
   display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+  grid-template-columns: 1fr !important;  /* ← 1列固定 */
   gap: 1.5rem !important;
   padding: 1rem !important;
-  justify-content: center !important;
+  justify-content: center !important;  /* 中央寄せは残してOK */
 }
 
 .card {
