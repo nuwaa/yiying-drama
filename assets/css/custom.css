@@ -88,14 +88,31 @@ mark {
 }
 
 .card {
+  display: flex;  /* ← 横並びに */
+  flex-direction: row;
   background: #E6FFF5;
   border: 2px solid #A0F0C0;
   border-radius: 12px;
   padding: 1rem;
   box-shadow: 0 4px 10px rgba(80, 200, 120, 0.15);
-  width: 100% !important;
   box-sizing: border-box !important;
+  gap: 1rem;
   transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.card img {
+  width: 400px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.card .card-text {
+  flex: 1;  /* ← 画像の横の残り領域を占める */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card:hover {
